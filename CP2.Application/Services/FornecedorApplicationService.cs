@@ -18,9 +18,48 @@ namespace CP2.Application.Services
             return _repository.DeletarDados(id);
         }
 
+        public FornecedorEntity? EditarDadosFornecedor(int id, IFornecedorDto entity)
+        {
+            entity.Validate();
+
+            return _repository.EditarDados(new FornecedorEntity
+            {
+                Id = id,
+                Nome = entity.Nome,
+                Cnpj = entity.Cnpj,
+                Endereco = entity.Endereco,
+                Telefone = entity.Telefone,
+                Email = entity.Email,
+                CriadoEm = entity.CriadoEm,
+
+            });
+
+        }
+
         public FornecedorEntity? ObterFornecedorPorId(int id)
         {
             return _repository.ObterPorId(id);
+        }
+
+        public IEnumerable<FornecedorEntity> ObterTodosFornecedores()
+        {
+            return _repository.ObterTodos();
+        }
+
+        public FornecedorEntity? SalvarDadosFornecedor(IFornecedorDto entity)
+        {
+            entity.Validate();
+
+            return _repository.SalvarDados(new FornecedorEntity
+            {
+                Nome = entity.Nome,
+                Cnpj = entity.Cnpj,
+                Endereco = entity.Endereco,
+                Telefone = entity.Telefone,
+                Email = entity.Email,
+                CriadoEm = entity.CriadoEm,
+
+            });
         }
 
     }

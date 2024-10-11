@@ -17,14 +17,26 @@ namespace CP2.Application.Services
             return _repository.DeletarDados(id);
         }
 
-        public IEnumerable<VendedorEntity> ObterTodosVendedores()
+        public VendedorEntity? EditarDadosVendedor(int id, VendedorEntity entity)
         {
-            return _repository.ObterTodos();
+            return _repository.EditarDados(entity);
         }
 
         public VendedorEntity? ObterVendedorPorId(int id)
         {
             return _repository.ObterPorId(id);
         }
+
+        public IEnumerable<VendedorEntity> ObterTodosVendedores()
+        {
+            return _repository.ObterTodos();
+        }
+
+        public VendedorEntity? SalvarDadosVendedor(VendedorEntity entity)
+        {
+            return _repository.SalvarDados(entity);
+        }
+
+        
     }
 }
